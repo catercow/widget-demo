@@ -1,9 +1,5 @@
 window.CC_WIDGET = {
-  ALLOWED_ORIGINS: [
-    "https://qa2.catercow.com",
-    "https://www.catercow.com",
-    // "https://www.catercow.test",
-  ],
+  ALLOWED_ORIGINS: ["https://www.catercow.com"],
   hasInitialized: false,
   catererSlug: null,
   init() {
@@ -12,7 +8,6 @@ window.CC_WIDGET = {
     const self = this;
 
     window.addEventListener("message", function ({ data: message, origin }) {
-      console.log({ origin });
       if (!self.ALLOWED_ORIGINS.includes(origin)) return;
       if (message === "close") {
         self.close();
@@ -55,7 +50,7 @@ window.CC_WIDGET = {
   open() {
     if (document.getElementById("cc-widget")) return;
     var child = document.createElement("div");
-    child.innerHTML = `<iframe src="https://qa2.catercow.com/catering/${this.catererSlug}/widget"
+    child.innerHTML = `<iframe src="https://www.catercow.com/catering/${this.catererSlug}/widget"
               style="width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 9999999;"
               frameborder="0"
               id="cc-widget"></iframe>`;
