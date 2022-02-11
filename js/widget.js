@@ -1,4 +1,9 @@
 window.CC_WIDGET = {
+  ALLOWED_ORIGINS: [
+    "https://qa2.catercow.com",
+    "https://www.catercow.com",
+    // "https://www.catercow.test",
+  ],
   hasInitialized: false,
   catererSlug: null,
   init() {
@@ -8,10 +13,10 @@ window.CC_WIDGET = {
 
     window.addEventListener("message", function ({ data: message, origin }) {
       console.log({ origin });
-      if (origin !== "https://qa2.catercow.com") return;
+      if (!self.ALLOWED_ORIGINS.includes(origin)) return;
       if (message === "close") {
         self.close();
-      } else if (message.startsWith("http")) {
+      } else if (message.startsWith("https")) {
         window.open(message);
       }
     });
@@ -41,11 +46,7 @@ window.CC_WIDGET = {
 
       // Add new event listeners
       el.addEventListener("mouseenter", () => el.removeAttribute("href"));
-      el.addEventListener("click", (ev) => {
-        ev.stopPropagation();
-        ev.preventDefault();
-        self.open();
-      });
+      el.addEventListener("click", () => self.open());
     });
 
     // Scan for new links every second, in case we are dealing with a SPA
