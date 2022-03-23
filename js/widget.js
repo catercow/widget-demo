@@ -43,7 +43,7 @@ var LOADING_STYLES = `
 }`;
 
 window.CC_WIDGET = {
-  ALLOWED_ORIGINS: ["https://www.catercow.test"],
+  ALLOWED_ORIGINS: ["https://www.catercow.test", "https://qa2.catercow.com"],
   hasInitialized: false,
   catererSlug: null,
   init() {
