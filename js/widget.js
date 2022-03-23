@@ -116,7 +116,7 @@ window.CC_WIDGET = {
 
     var child = document.createElement("div");
     // SET TO QA2 for testing
-    var widgetFrame = `<iframe src="https://qa2.catercow.com//catering/${this.catererSlug}/referral?embedded=true" style="width: 100%; height: 100%; position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 9999999;" frameborder="0" id="cc-widget"></iframe>`;
+    var widgetFrame = `<iframe src="https://qa2.catercow.com/catering/${this.catererSlug}/referral?embedded=true" style="width: 100%; height: 100%; position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 9999999;" frameborder="0" id="cc-widget"></iframe>`;
     child.innerHTML = widgetFrame;
 
     child = child.firstChild;
