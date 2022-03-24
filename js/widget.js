@@ -43,7 +43,7 @@ var LOADING_STYLES = `
 }`;
 
 window.CC_WIDGET = {
-  ALLOWED_ORIGINS: ["https://www.catercow.test", "https://qa2.catercow.com"],
+  ALLOWED_ORIGINS: ["https://www.catercow.com"],
   hasInitialized: false,
   catererSlug: null,
   init() {
@@ -70,7 +70,7 @@ window.CC_WIDGET = {
   attachLinks() {
     var self = this;
     var links = document.querySelectorAll(
-      'a[href^="https://www.catercow.test/catering/"]'
+      'a[href^="https://www.catercow.com/catering/"]'
     );
     [].forEach.call(links, (oldElement) => {
       // Check if we have already loaded this link
@@ -115,8 +115,7 @@ window.CC_WIDGET = {
     this.addLoadingOverLay();
 
     var child = document.createElement("div");
-    // SET TO QA2 for testing
-    var widgetFrame = `<iframe src="https://qa2.catercow.com/catering/${this.catererSlug}/referral?embedded=true" style="width: 100%; height: 100%; position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 9999999;" frameborder="0" id="cc-widget"></iframe>`;
+    var widgetFrame = `<iframe src="https://www.catercow.com/catering/${this.catererSlug}/referral?embedded=true" style="width: 100%; height: 100%; position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 9999999;" frameborder="0" id="cc-widget"></iframe>`;
     child.innerHTML = widgetFrame;
 
     child = child.firstChild;
